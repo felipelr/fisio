@@ -1,0 +1,15 @@
+C:\Workspace\fisio\api\fisio.infra\bin\Debug\net7.0\fisio.infra.deps.json
+C:\Workspace\fisio\api\fisio.infra\bin\Debug\net7.0\fisio.infra.dll
+C:\Workspace\fisio\api\fisio.infra\bin\Debug\net7.0\fisio.infra.pdb
+C:\Workspace\fisio\api\fisio.infra\bin\Debug\net7.0\fisio.domain.dll
+C:\Workspace\fisio\api\fisio.infra\bin\Debug\net7.0\fisio.domain.pdb
+C:\Workspace\fisio\api\fisio.infra\obj\Debug\net7.0\fisio.infra.csproj.AssemblyReference.cache
+C:\Workspace\fisio\api\fisio.infra\obj\Debug\net7.0\fisio.infra.GeneratedMSBuildEditorConfig.editorconfig
+C:\Workspace\fisio\api\fisio.infra\obj\Debug\net7.0\fisio.infra.AssemblyInfoInputs.cache
+C:\Workspace\fisio\api\fisio.infra\obj\Debug\net7.0\fisio.infra.AssemblyInfo.cs
+C:\Workspace\fisio\api\fisio.infra\obj\Debug\net7.0\fisio.infra.csproj.CoreCompileInputs.cache
+C:\Workspace\fisio\api\fisio.infra\obj\Debug\net7.0\fisio.infra.csproj.CopyComplete
+C:\Workspace\fisio\api\fisio.infra\obj\Debug\net7.0\fisio.infra.dll
+C:\Workspace\fisio\api\fisio.infra\obj\Debug\net7.0\refint\fisio.infra.dll
+C:\Workspace\fisio\api\fisio.infra\obj\Debug\net7.0\fisio.infra.pdb
+C:\Workspace\fisio\api\fisio.infra\obj\Debug\net7.0\ref\fisio.infra.dll

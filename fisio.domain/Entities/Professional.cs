@@ -5,34 +5,8 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace fisio.domain.Entities
 {
-    public class Patient : Base
+    public class Professional : Base
     {
-        public Patient(string name, string document, string document2, string gender, string cellphone, string photo, DateTime dateBirth, string workPlace, string spouseName, string fatherName, string motherName, string maritalStatus, string responsibleName1, string responsibleName2, string street, string streetNumber, string neighborhood, string city, string state, string zipCode, bool active, string userId, User user)
-        {
-            Name = name;
-            Document = document;
-            Document2 = document2;
-            Gender = gender;
-            Cellphone = cellphone;
-            Photo = photo;
-            DateBirth = dateBirth;
-            WorkPlace = workPlace;
-            SpouseName = spouseName;
-            FatherName = fatherName;
-            MotherName = motherName;
-            MaritalStatus = maritalStatus;
-            ResponsibleName1 = responsibleName1;
-            ResponsibleName2 = responsibleName2;
-            Street = street;
-            StreetNumber = streetNumber;
-            Neighborhood = neighborhood;
-            City = city;
-            State = state;
-            ZipCode = zipCode;
-            Active = active;
-            UserId = userId;
-            User = user;
-        }
 
         [Required(ErrorMessage = "Este campo é obrigatório")]
         [MaxLength(255, ErrorMessage = "Este campo deve conter entre 3 e 255 caracteres")]
@@ -66,34 +40,6 @@ namespace fisio.domain.Entities
         [Column("datebirth")]
         public DateTime DateBirth { get; private set; }
 
-        [MaxLength(150, ErrorMessage = "Este campo deve conter no máximo 150 caracteres")]
-        [Column("work_place")]
-        public string WorkPlace { get; private set; }
-
-        [MaxLength(150, ErrorMessage = "Este campo deve conter no máximo 150 caracteres")]
-        [Column("spouse_name")]
-        public string SpouseName { get; private set; }
-
-        [MaxLength(150, ErrorMessage = "Este campo deve conter no máximo 150 caracteres")]
-        [Column("father_name")]
-        public string FatherName { get; private set; }
-
-        [MaxLength(150, ErrorMessage = "Este campo deve conter no máximo 150 caracteres")]
-        [Column("mother_name")]
-        public string MotherName { get; private set; }
-
-        [MaxLength(150, ErrorMessage = "Este campo deve conter no máximo 150 caracteres")]
-        [Column("marital_status")]
-        public string MaritalStatus { get; private set; }
-
-        [MaxLength(150, ErrorMessage = "Este campo deve conter no máximo 150 caracteres")]
-        [Column("responsible_name_1")]
-        public string ResponsibleName1 { get; private set; }
-
-        [MaxLength(150, ErrorMessage = "Este campo deve conter no máximo 150 caracteres")]
-        [Column("responsible_name_2")]
-        public string ResponsibleName2 { get; private set; }
-
         [MaxLength(255, ErrorMessage = "Este campo deve conter no máximo 255 caracteres")]
         [Column("street")]
         public string Street { get; private set; }
@@ -122,6 +68,12 @@ namespace fisio.domain.Entities
         [DefaultValue(true)]
         [Column("active")]
         public bool Active { get; private set; }
+
+        [Column("admission_date")]
+        public DateTime AdmissionDate { get; private set; }
+
+        [Column("resignation_date")]
+        public DateTime ResignationDate { get; private set; }
 
         [Required(ErrorMessage = "Este campo é obrigatório")]
         [Column("user_id")]

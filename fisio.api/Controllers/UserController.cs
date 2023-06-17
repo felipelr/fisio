@@ -44,11 +44,12 @@ public class UserController : ControllerBase
             return Ok(new
             {
                 user = userDTO,
-                token = token
+                token
             });
         }
         catch (Exception ex)
         {
+            _logger.LogError(ex, "Erro ao realizar o login");
             return Problem(detail: ex.StackTrace, title: ex.Message);
         }
     }
@@ -70,6 +71,7 @@ public class UserController : ControllerBase
         }
         catch (Exception ex)
         {
+            _logger.LogError(ex, "Erro ao criar usuário");
             return Problem(detail: ex.StackTrace, title: ex.Message);
         }
     }

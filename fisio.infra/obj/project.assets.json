@@ -5548,11 +5548,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Workspace\\fisio\\api\\fisio.infra\\fisio.infra.csproj",
+      "projectUniqueName": "c:\\Workspace\\fisio\\api\\fisio.infra\\fisio.infra.csproj",
       "projectName": "fisio.infra",
-      "projectPath": "C:\\Workspace\\fisio\\api\\fisio.infra\\fisio.infra.csproj",
+      "projectPath": "c:\\Workspace\\fisio\\api\\fisio.infra\\fisio.infra.csproj",
       "packagesPath": "C:\\Users\\felip\\.nuget\\packages\\",
-      "outputPath": "C:\\Workspace\\fisio\\api\\fisio.infra\\obj\\",
+      "outputPath": "c:\\Workspace\\fisio\\api\\fisio.infra\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\felip\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -5567,8 +5567,8 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "projectReferences": {
-            "C:\\Workspace\\fisio\\api\\fisio.domain\\fisio.domain.csproj": {
-              "projectPath": "C:\\Workspace\\fisio\\api\\fisio.domain\\fisio.domain.csproj"
+            "c:\\Workspace\\fisio\\api\\fisio.domain\\fisio.domain.csproj": {
+              "projectPath": "c:\\Workspace\\fisio\\api\\fisio.domain\\fisio.domain.csproj"
             }
           }
         }

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "HVRoRrl2dX+00X0Imu5SdRmXmVdFtGG6qhRP9jdjQmqCxTF4tZkJR0l66IC+R521Ol+tmZksRETDFsdjZx9oVA==",
+  "dgSpecHash": "8D6Sa/t3wEFN+zmQU8X06n2x+MfunD4tqYS4U6A2vCDqER9gNlfhOr8oZSUm7g+FxReN9Zvrcn46BtRD8OMnlA==",
   "success": true,
-  "projectFilePath": "C:\\Workspace\\fisio\\api\\fisio.api\\fisio.api.csproj",
+  "projectFilePath": "c:\\Workspace\\fisio\\api\\fisio.api\\fisio.api.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\felip\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
     "C:\\Users\\felip\\.nuget\\packages\\bcrypt.net-next\\4.0.3\\bcrypt.net-next.4.0.3.nupkg.sha512",

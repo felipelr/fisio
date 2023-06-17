@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "R/cIHTEzW7M7xGD6fr7zkWeuqAetm7iViu8O9F7J0SGzvBRup/GO3iRsn87afDfOyBW2vdPTDm9O/Ad1gXnctw==",
+  "dgSpecHash": "8FwKuiug9DpKvTMPX4drcVJhHFqbWWGFQTI3p25pfpZhZQEPop2ZL+xLoM/nIj+qiMzK9cwEuuBZYYrIXrtyTg==",
   "success": true,
-  "projectFilePath": "C:\\Workspace\\fisio\\api\\fisio.domain\\fisio.domain.csproj",
+  "projectFilePath": "c:\\Workspace\\fisio\\api\\fisio.domain\\fisio.domain.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\felip\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
     "C:\\Users\\felip\\.nuget\\packages\\flunt\\2.0.5\\flunt.2.0.5.nupkg.sha512",

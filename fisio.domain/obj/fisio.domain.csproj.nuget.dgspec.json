@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Workspace\\fisio\\api\\fisio.domain\\fisio.domain.csproj": {}
+    "c:\\Workspace\\fisio\\api\\fisio.domain\\fisio.domain.csproj": {}
   },
   "projects": {
-    "C:\\Workspace\\fisio\\api\\fisio.domain\\fisio.domain.csproj": {
+    "c:\\Workspace\\fisio\\api\\fisio.domain\\fisio.domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Workspace\\fisio\\api\\fisio.domain\\fisio.domain.csproj",
+        "projectUniqueName": "c:\\Workspace\\fisio\\api\\fisio.domain\\fisio.domain.csproj",
         "projectName": "fisio.domain",
-        "projectPath": "C:\\Workspace\\fisio\\api\\fisio.domain\\fisio.domain.csproj",
+        "projectPath": "c:\\Workspace\\fisio\\api\\fisio.domain\\fisio.domain.csproj",
         "packagesPath": "C:\\Users\\felip\\.nuget\\packages\\",
-        "outputPath": "C:\\Workspace\\fisio\\api\\fisio.domain\\obj\\",
+        "outputPath": "c:\\Workspace\\fisio\\api\\fisio.domain\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\felip\\AppData\\Roaming\\NuGet\\NuGet.Config"

@@ -69,8 +69,7 @@ namespace fisio.domain.Handlers.Users
                         command.State,
                         command.ZipCode,
                         true,
-                        user.Id,
-                        user
+                        user.Id
                     );
                     await _patientRepository.Create(patient);
                     break;

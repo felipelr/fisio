@@ -8,6 +8,7 @@ namespace fisio.infra.Contexts
         public FisioMySQLContext(DbContextOptions<FisioMySQLContext> options) : base(options) { }
 
         public DbSet<User> Users { get; private set; }
+        public DbSet<RefreshToken> RefreshTokens { get; private set; }
         public DbSet<Patient> Patients { get; private set; }
     }
 }

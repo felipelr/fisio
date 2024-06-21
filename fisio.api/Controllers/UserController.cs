@@ -1,13 +1,16 @@
+using System.Security;
 using fisio.domain.Api.Models;
 using fisio.domain.Api.Services;
 using fisio.domain.Commands.Common;
 using fisio.domain.Commands.Users;
 using fisio.domain.Dtos;
+using fisio.domain.Entities;
 using fisio.domain.Handlers.Users;
 using fisio.domain.Mappers.Interfaces;
 using fisio.domain.Repositories;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.IdentityModel.Tokens;
 
 namespace fisio.api.Controllers;
 
@@ -27,6 +30,7 @@ public class UserController : ControllerBase
     [AllowAnonymous]
     public async Task<ActionResult<dynamic>> Authenticate(
                     [FromServices] IUserRepository userRepository,
+                    [FromServices] IRefreshTokenRepository refreshTokenRepository,
                     [FromServices] IMapperConfig mapper,
                     [FromBody] UserLogin model)
     {
@@ -38,18 +42,64 @@ public class UserController : ControllerBase
                 return NotFound(new { message = "Usuário e/ou senha inválidos" });
 
             var token = TokenService.GenerateToken(user);
+            var refreshToken = TokenService.GenerateRefreshToken();
+            await refreshTokenRepository.Create(new RefreshToken(user.Id, refreshToken));
 
             var userDTO = mapper.GetMapper().Map<UserDto>(user);
 
             return Ok(new
             {
                 user = userDTO,
-                token
+                token,
+                refreshToken
             });
         }
         catch (Exception ex)
         {
             _logger.LogError(ex, "Erro ao realizar o login");
+            return Problem(detail: ex.StackTrace, title: ex.Message);
+        }
+    }
+
+    [HttpPost]
+    [Route("refresh")]
+    [AllowAnonymous]
+    public async Task<ActionResult<dynamic>> Refresh(
+        [FromServices] IRefreshTokenRepository refreshTokenRepository,
+        string token,
+        string refreshToken)
+    {
+        try
+        {
+            var principal = TokenService.GetPrincipalFromExpiredToken(token);
+            if (principal.Identity == null)
+                return NotFound(new { message = "Token invalido." });
+
+            var key = principal.Identity.Name!;
+            var savedRefreshToken = await refreshTokenRepository.GetByKey(key);
+
+            if (savedRefreshToken == null)
+                return NotFound(new { message = "Token invalido." });
+
+            if (savedRefreshToken.Token == refreshToken)
+                return Problem(title: "Refresh token invalido");
+
+            var newJwtToken = TokenService.GenerateToken(principal.Claims);
+            var newRefreshToken = TokenService.GenerateRefreshToken();
+            if (savedRefreshToken != null)
+                await refreshTokenRepository.Delete(savedRefreshToken);
+
+            await refreshTokenRepository.Create(new RefreshToken(key, newRefreshToken));
+
+            return Ok(new
+            {
+                token = newJwtToken,
+                refreshToken = newRefreshToken
+            });
+        }
+        catch (Exception ex)
+        {
+            _logger.LogError(ex, "Erro ao gerar refresh token");
             return Problem(detail: ex.StackTrace, title: ex.Message);
         }
     }
@@ -72,6 +122,22 @@ public class UserController : ControllerBase
         catch (Exception ex)
         {
             _logger.LogError(ex, "Erro ao criar usuário");
+            return Problem(detail: ex.StackTrace, title: ex.Message);
+        }
+    }
+
+    [HttpGet]
+    public async Task<ActionResult<dynamic>> GetAll([FromServices] IUserRepository userRepository)
+    {
+        try
+        {
+            _logger.LogInformation("Log buscando todos os usuários.");
+            var result = await userRepository.GetAll();
+            return Ok(result);
+        }
+        catch (Exception ex)
+        {
+            _logger.LogError(ex, "Erro ao buscar usuários");
             return Problem(detail: ex.StackTrace, title: ex.Message);
         }
     }

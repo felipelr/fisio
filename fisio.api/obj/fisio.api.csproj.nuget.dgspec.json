@@ -1,36 +1,39 @@
 {
   "format": 1,
   "restore": {
-    "c:\\Workspace\\fisio\\api\\fisio.api\\fisio.api.csproj": {}
+    "C:\\Workspace\\fisioDotNetApi\\fisio.api\\fisio.api.csproj": {}
   },
   "projects": {
-    "c:\\Workspace\\fisio\\api\\fisio.api\\fisio.api.csproj": {
+    "C:\\Workspace\\fisioDotNetApi\\fisio.api\\fisio.api.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\Workspace\\fisio\\api\\fisio.api\\fisio.api.csproj",
+        "projectUniqueName": "C:\\Workspace\\fisioDotNetApi\\fisio.api\\fisio.api.csproj",
         "projectName": "fisio.api",
-        "projectPath": "c:\\Workspace\\fisio\\api\\fisio.api\\fisio.api.csproj",
+        "projectPath": "C:\\Workspace\\fisioDotNetApi\\fisio.api\\fisio.api.csproj",
         "packagesPath": "C:\\Users\\felip\\.nuget\\packages\\",
-        "outputPath": "c:\\Workspace\\fisio\\api\\fisio.api\\obj\\",
+        "outputPath": "C:\\Workspace\\fisioDotNetApi\\fisio.api\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\felip\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\felip\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net7.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "c:\\Workspace\\fisio\\api\\fisio.domain\\fisio.domain.csproj": {
-                "projectPath": "c:\\Workspace\\fisio\\api\\fisio.domain\\fisio.domain.csproj"
+              "C:\\Workspace\\fisioDotNetApi\\fisio.domain\\fisio.domain.csproj": {
+                "projectPath": "C:\\Workspace\\fisioDotNetApi\\fisio.domain\\fisio.domain.csproj"
               },
-              "c:\\Workspace\\fisio\\api\\fisio.infra\\fisio.infra.csproj": {
-                "projectPath": "c:\\Workspace\\fisio\\api\\fisio.infra\\fisio.infra.csproj"
+              "C:\\Workspace\\fisioDotNetApi\\fisio.infra\\fisio.infra.csproj": {
+                "projectPath": "C:\\Workspace\\fisioDotNetApi\\fisio.infra\\fisio.infra.csproj"
               }
             }
           }
@@ -39,6 +42,11 @@
           "warnAsError": [
             "NU1605"
           ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -57,6 +65,10 @@
               "target": "Package",
               "version": "[7.0.3, )"
             },
+            "Microsoft.VisualStudio.Azure.Containers.Tools.Targets": {
+              "target": "Package",
+              "version": "[1.20.1, )"
+            },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
               "version": "[6.4.0, )"
@@ -73,6 +85,24 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[7.0.20, 7.0.20]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Host.win-x64",
+              "version": "[7.0.20, 7.0.20]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[7.0.20, 7.0.20]"
+            },
+            {
+              "name": "Microsoft.WindowsDesktop.App.Ref",
+              "version": "[7.0.20, 7.0.20]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.AspNetCore.App": {
               "privateAssets": "none"
@@ -81,26 +111,29 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.201\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.302\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "c:\\Workspace\\fisio\\api\\fisio.domain\\fisio.domain.csproj": {
+    "C:\\Workspace\\fisioDotNetApi\\fisio.domain\\fisio.domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\Workspace\\fisio\\api\\fisio.domain\\fisio.domain.csproj",
+        "projectUniqueName": "C:\\Workspace\\fisioDotNetApi\\fisio.domain\\fisio.domain.csproj",
         "projectName": "fisio.domain",
-        "projectPath": "c:\\Workspace\\fisio\\api\\fisio.domain\\fisio.domain.csproj",
+        "projectPath": "C:\\Workspace\\fisioDotNetApi\\fisio.domain\\fisio.domain.csproj",
         "packagesPath": "C:\\Users\\felip\\.nuget\\packages\\",
-        "outputPath": "c:\\Workspace\\fisio\\api\\fisio.domain\\obj\\",
+        "outputPath": "C:\\Workspace\\fisioDotNetApi\\fisio.domain\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\felip\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\felip\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net7.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -113,6 +146,11 @@
           "warnAsError": [
             "NU1605"
           ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -139,39 +177,56 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[7.0.20, 7.0.20]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[7.0.20, 7.0.20]"
+            },
+            {
+              "name": "Microsoft.WindowsDesktop.App.Ref",
+              "version": "[7.0.20, 7.0.20]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.201\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.302\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "c:\\Workspace\\fisio\\api\\fisio.infra\\fisio.infra.csproj": {
+    "C:\\Workspace\\fisioDotNetApi\\fisio.infra\\fisio.infra.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\Workspace\\fisio\\api\\fisio.infra\\fisio.infra.csproj",
+        "projectUniqueName": "C:\\Workspace\\fisioDotNetApi\\fisio.infra\\fisio.infra.csproj",
         "projectName": "fisio.infra",
-        "projectPath": "c:\\Workspace\\fisio\\api\\fisio.infra\\fisio.infra.csproj",
+        "projectPath": "C:\\Workspace\\fisioDotNetApi\\fisio.infra\\fisio.infra.csproj",
         "packagesPath": "C:\\Users\\felip\\.nuget\\packages\\",
-        "outputPath": "c:\\Workspace\\fisio\\api\\fisio.infra\\obj\\",
+        "outputPath": "C:\\Workspace\\fisioDotNetApi\\fisio.infra\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\felip\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\felip\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net7.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "c:\\Workspace\\fisio\\api\\fisio.domain\\fisio.domain.csproj": {
-                "projectPath": "c:\\Workspace\\fisio\\api\\fisio.domain\\fisio.domain.csproj"
+              "C:\\Workspace\\fisioDotNetApi\\fisio.domain\\fisio.domain.csproj": {
+                "projectPath": "C:\\Workspace\\fisioDotNetApi\\fisio.domain\\fisio.domain.csproj"
               }
             }
           }
@@ -180,6 +235,11 @@
           "warnAsError": [
             "NU1605"
           ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -214,12 +274,26 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[7.0.20, 7.0.20]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[7.0.20, 7.0.20]"
+            },
+            {
+              "name": "Microsoft.WindowsDesktop.App.Ref",
+              "version": "[7.0.20, 7.0.20]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.201\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.302\\RuntimeIdentifierGraph.json"
         }
       }
     }

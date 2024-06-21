@@ -7,7 +7,7 @@ namespace fisio.domain.Entities
 {
     public class Patient : Base
     {
-        public Patient(string name, string document, string document2, string gender, string cellphone, string photo, DateTime dateBirth, string workPlace, string spouseName, string fatherName, string motherName, string maritalStatus, string responsibleName1, string responsibleName2, string street, string streetNumber, string neighborhood, string city, string state, string zipCode, bool active, string userId, User user)
+        public Patient(string name, string document, string document2, string gender, string cellphone, string photo, DateTime dateBirth, string workPlace, string spouseName, string fatherName, string motherName, string maritalStatus, string responsibleName1, string responsibleName2, string street, string streetNumber, string neighborhood, string city, string state, string zipCode, bool active, string userId)
         {
             Name = name;
             Document = document;
@@ -31,7 +31,6 @@ namespace fisio.domain.Entities
             ZipCode = zipCode;
             Active = active;
             UserId = userId;
-            User = user;
         }
 
         [Required(ErrorMessage = "Este campo é obrigatório")]

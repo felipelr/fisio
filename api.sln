@@ -3,19 +3,18 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "fisio.api", "fisio.api\fisio.api.csproj", "{B089F382-DBA2-4B21-869D-490F88334E7F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "fisio.api", "fisio.api\fisio.api.csproj", "{B089F382-DBA2-4B21-869D-490F88334E7F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "fisio.domain", "fisio.domain\fisio.domain.csproj", "{D7FE7651-FBF0-4476-B9CC-B098B95A92F5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "fisio.domain", "fisio.domain\fisio.domain.csproj", "{D7FE7651-FBF0-4476-B9CC-B098B95A92F5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "fisio.infra", "fisio.infra\fisio.infra.csproj", "{350C3152-38F9-40A0-BEBA-84988D4A69EA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "fisio.infra", "fisio.infra\fisio.infra.csproj", "{350C3152-38F9-40A0-BEBA-84988D4A69EA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "fisio.test", "fisio.test\fisio.test.csproj", "{D9E6E427-56CA-47D6-9FB5-E82E69A6EE5D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
-	EndGlobalSection
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{B089F382-DBA2-4B21-869D-490F88334E7F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -30,5 +29,15 @@ Global
 		{350C3152-38F9-40A0-BEBA-84988D4A69EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{350C3152-38F9-40A0-BEBA-84988D4A69EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{350C3152-38F9-40A0-BEBA-84988D4A69EA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D9E6E427-56CA-47D6-9FB5-E82E69A6EE5D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D9E6E427-56CA-47D6-9FB5-E82E69A6EE5D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D9E6E427-56CA-47D6-9FB5-E82E69A6EE5D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D9E6E427-56CA-47D6-9FB5-E82E69A6EE5D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {890C1258-B893-4F21-9EFA-35D83B979A69}
 	EndGlobalSection
 EndGlobal

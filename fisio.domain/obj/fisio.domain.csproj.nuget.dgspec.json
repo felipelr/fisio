@@ -1,25 +1,28 @@
 {
   "format": 1,
   "restore": {
-    "c:\\Workspace\\fisio\\api\\fisio.domain\\fisio.domain.csproj": {}
+    "C:\\Workspace\\fisioDotNetApi\\fisio.domain\\fisio.domain.csproj": {}
   },
   "projects": {
-    "c:\\Workspace\\fisio\\api\\fisio.domain\\fisio.domain.csproj": {
+    "C:\\Workspace\\fisioDotNetApi\\fisio.domain\\fisio.domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\Workspace\\fisio\\api\\fisio.domain\\fisio.domain.csproj",
+        "projectUniqueName": "C:\\Workspace\\fisioDotNetApi\\fisio.domain\\fisio.domain.csproj",
         "projectName": "fisio.domain",
-        "projectPath": "c:\\Workspace\\fisio\\api\\fisio.domain\\fisio.domain.csproj",
+        "projectPath": "C:\\Workspace\\fisioDotNetApi\\fisio.domain\\fisio.domain.csproj",
         "packagesPath": "C:\\Users\\felip\\.nuget\\packages\\",
-        "outputPath": "c:\\Workspace\\fisio\\api\\fisio.domain\\obj\\",
+        "outputPath": "C:\\Workspace\\fisioDotNetApi\\fisio.domain\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\felip\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\felip\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net7.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -32,6 +35,11 @@
           "warnAsError": [
             "NU1605"
           ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -58,12 +66,26 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[7.0.20, 7.0.20]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[7.0.20, 7.0.20]"
+            },
+            {
+              "name": "Microsoft.WindowsDesktop.App.Ref",
+              "version": "[7.0.20, 7.0.20]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.201\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.302\\RuntimeIdentifierGraph.json"
         }
       }
     }

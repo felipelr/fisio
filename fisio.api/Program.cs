@@ -42,6 +42,7 @@ builder.Services.AddDbContext<FisioInMemoryContext>();
 
 //dependencias dos repositorios
 builder.Services.AddTransient<IUserRepository, UserRepository>();
+builder.Services.AddTransient<IRefreshTokenRepository, RefreshTokenRepository>();
 
 //dependencias do mapper
 builder.Services.AddTransient<IMapperConfig, MapperConfig>();
@@ -56,7 +57,11 @@ var app = builder.Build();
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
-    app.UseSwaggerUI();
+    app.UseSwaggerUI(options => // UseSwaggerUI is called only in Development.
+    {
+        options.SwaggerEndpoint("./swagger/v1/swagger.json", "v1");
+        options.RoutePrefix = string.Empty;
+    });
 }
 
 //configuração apenas pra funcionar em localhost

@@ -13,22 +13,19 @@ namespace fisio.test.FakeRepositories
             _context = context;
         }
 
-        public async Task Create(T entity)
+        public void Create(T entity)
         {
             _context.Set<T>().Add(entity);
-            await _context.SaveChangesAsync();
         }
 
-        public async Task Update(T entity)
+        public void Update(T entity)
         {
             _context.Entry(entity).State = EntityState.Modified;
-            await _context.SaveChangesAsync();
         }
 
-        public async Task Delete(T entity)
+        public void Delete(T entity)
         {
             _context.Set<T>().Remove(entity);
-            await _context.SaveChangesAsync();
         }
 
         public async Task<T?> GetById(string id)

@@ -6,6 +6,7 @@ using fisio.domain.Handlers.Interfaces;
 using fisio.domain.Repositories;
 using fisio.domain.Commands.Common;
 using fisio.domain.Enums.User;
+using fisio.domain.UnitOfWork;
 
 namespace fisio.domain.Handlers.Users
 {
@@ -13,15 +14,17 @@ namespace fisio.domain.Handlers.Users
     {
         private readonly IUserRepository _userRepository;
         private readonly IPatientRepository _patientRepository;
+        private readonly IUnitOfWork _unitOfWork;
         private readonly string[] roles = { "patient", "professional", "adm" };
 
-        public CreateUserHandler(IUserRepository userRepository, IPatientRepository patientRepository)
+        public CreateUserHandler(IUserRepository userRepository, IPatientRepository patientRepository, IUnitOfWork unitOfWork)
         {
             _userRepository = userRepository;
             _patientRepository = patientRepository;
+            _unitOfWork = unitOfWork;
         }
 
-        public async Task<ICommandResult> Handle(CreateUserCommand command)
+        public async Task<ICommandResult> Handle(CreateUserCommand command, CancellationToken cancellationToke = default)
         {
             command.Validate();
             if (!command.IsValid)
@@ -42,7 +45,8 @@ namespace fisio.domain.Handlers.Users
                 true,
                 role
             );
-            await _userRepository.Create(user);
+            user.SetHashedPassword(BCrypt.Net.BCrypt.HashPassword(user.Password));
+            _userRepository.Create(user);
 
             switch (command.UserType)
             {
@@ -71,9 +75,11 @@ namespace fisio.domain.Handlers.Users
                         true,
                         user.Id
                     );
-                    await _patientRepository.Create(patient);
+                    _patientRepository.Create(patient);
                     break;
             }
+
+            await _unitOfWork.SaveChangesAsync(cancellationToke);
 
             return new GenericCommandResult(
                 true,

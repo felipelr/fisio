@@ -1,13 +1,18 @@
 using System.Text;
 using fisio.api;
+using fisio.domain.UnitOfWork;
 using fisio.domain.Mappers;
 using fisio.domain.Mappers.Interfaces;
 using fisio.domain.Repositories;
 using fisio.infra.Contexts;
 using fisio.infra.Repositories;
+using fisio.infra.UnitOfWork;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
+using fisio.domain.Handlers.Users;
+using fisio.domain.Handlers.Interfaces;
+using fisio.domain.Commands.Users;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -41,11 +46,17 @@ builder.Services.AddDbContext<FisioMySQLContext>(options => options.UseMySql(con
 builder.Services.AddDbContext<FisioInMemoryContext>();
 
 //dependencias dos repositorios
+builder.Services.AddTransient<IUnitOfWork, UnitOfWork>();
+builder.Services.AddTransient<IUserRepository, UserRepository>();
+builder.Services.AddTransient<IPatientRepository, PatientRepository>();
 builder.Services.AddTransient<IUserRepository, UserRepository>();
 builder.Services.AddTransient<IRefreshTokenRepository, RefreshTokenRepository>();
 
 //dependencias do mapper
 builder.Services.AddTransient<IMapperConfig, MapperConfig>();
+
+//dependencias dos handlers
+builder.Services.AddTransient<CreateUserHandler, CreateUserHandler>();
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
@@ -61,6 +72,7 @@ if (app.Environment.IsDevelopment())
     {
         options.SwaggerEndpoint("./swagger/v1/swagger.json", "v1");
         options.RoutePrefix = string.Empty;
+        options.EnablePersistAuthorization();
     });
 }
 

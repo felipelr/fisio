@@ -8,6 +8,7 @@ using fisio.domain.Entities;
 using fisio.domain.Handlers.Users;
 using fisio.domain.Mappers.Interfaces;
 using fisio.domain.Repositories;
+using fisio.domain.UnitOfWork;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
@@ -32,6 +33,8 @@ public class UserController : ControllerBase
                     [FromServices] IUserRepository userRepository,
                     [FromServices] IRefreshTokenRepository refreshTokenRepository,
                     [FromServices] IMapperConfig mapper,
+                    [FromServices] IUnitOfWork unitOfWork,
+                    CancellationToken cancellationToken,
                     [FromBody] UserLogin model)
     {
         try
@@ -43,7 +46,9 @@ public class UserController : ControllerBase
 
             var token = TokenService.GenerateToken(user);
             var refreshToken = TokenService.GenerateRefreshToken();
-            await refreshTokenRepository.Create(new RefreshToken(user.Id, refreshToken));
+            refreshTokenRepository.Create(new RefreshToken(user.Id, refreshToken));
+
+            await unitOfWork.SaveChangesAsync(cancellationToken);
 
             var userDTO = mapper.GetMapper().Map<UserDto>(user);
 
@@ -66,6 +71,8 @@ public class UserController : ControllerBase
     [AllowAnonymous]
     public async Task<ActionResult<dynamic>> Refresh(
         [FromServices] IRefreshTokenRepository refreshTokenRepository,
+        [FromServices] IUnitOfWork unitOfWork,
+        CancellationToken cancellationToken,
         string token,
         string refreshToken)
     {
@@ -87,9 +94,11 @@ public class UserController : ControllerBase
             var newJwtToken = TokenService.GenerateToken(principal.Claims);
             var newRefreshToken = TokenService.GenerateRefreshToken();
             if (savedRefreshToken != null)
-                await refreshTokenRepository.Delete(savedRefreshToken);
+                refreshTokenRepository.Delete(savedRefreshToken);
 
-            await refreshTokenRepository.Create(new RefreshToken(key, newRefreshToken));
+            refreshTokenRepository.Create(new RefreshToken(key, newRefreshToken));
+
+            await unitOfWork.SaveChangesAsync(cancellationToken);
 
             return Ok(new
             {
@@ -105,17 +114,18 @@ public class UserController : ControllerBase
     }
 
     [HttpPost]
-    [Authorize(Roles = "adm")]
+    // [Authorize(Roles = "adm")]
     public async Task<ActionResult<dynamic>> Create(
                     [FromServices] CreateUserHandler createUserHandler,
-                    [FromBody] CreateUserCommand createUserCommand)
+                    [FromBody] CreateUserCommand createUserCommand,
+                    CancellationToken cancellationToken = default)
     {
         try
         {
             if (createUserCommand == null)
                 return BadRequest(new { message = "Informações inválidas" });
 
-            var result = (GenericCommandResult)await createUserHandler.Handle(createUserCommand);
+            var result = (GenericCommandResult)await createUserHandler.Handle(createUserCommand, cancellationToken);
 
             return Ok(result);
         }

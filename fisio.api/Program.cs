@@ -1,16 +1,12 @@
 using System.Text;
 using fisio.api;
-using fisio.domain.UnitOfWork;
 using fisio.domain.Mappers;
 using fisio.domain.Mappers.Interfaces;
-using fisio.domain.Repositories;
-using fisio.infra.Contexts;
-using fisio.infra.Repositories;
-using fisio.infra.UnitOfWork;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using fisio.domain.Handlers.Users;
+using fisio.infra.ServiceModules;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -37,23 +33,14 @@ builder.Services.AddAuthentication(x =>
     };
 });
 
-var serverVersion = new MySqlServerVersion(new Version(5, 7, 32));
-var connectiontring = builder.Configuration.GetConnectionString("mysqlConnection");
-builder.Services.AddDbContext<FisioMySQLContext>(options => options.UseMySql(connectiontring, serverVersion));
-builder.Services.AddDbContext<FisioInMemoryContext>();
-
-//dependencias de infra
-builder.Services.AddTransient<IUnitOfWork, UnitOfWork>();
-builder.Services.AddTransient<IUserRepository, UserRepository>();
-builder.Services.AddTransient<IPatientRepository, PatientRepository>();
-builder.Services.AddTransient<IUserRepository, UserRepository>();
-builder.Services.AddTransient<IRefreshTokenRepository, RefreshTokenRepository>();
-
 //dependencias do mapper
-builder.Services.AddTransient<IMapperConfig, MapperConfig>();
+builder.Services.AddScoped<IMapperConfig, MapperConfig>();
 
 //dependencias dos handlers
-builder.Services.AddTransient<CreateUserHandler, CreateUserHandler>();
+builder.Services.AddScoped<CreateUserHandler, CreateUserHandler>();
+
+//dependencias de infra
+builder.Services.AddFisioInfraDependencies(builder.Configuration);
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();

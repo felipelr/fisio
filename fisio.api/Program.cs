@@ -11,13 +11,10 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using fisio.domain.Handlers.Users;
-using fisio.domain.Handlers.Interfaces;
-using fisio.domain.Commands.Users;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-
 builder.Services.AddControllers();
 
 //Autenticacao JWT
@@ -45,7 +42,7 @@ var connectiontring = builder.Configuration.GetConnectionString("mysqlConnection
 builder.Services.AddDbContext<FisioMySQLContext>(options => options.UseMySql(connectiontring, serverVersion));
 builder.Services.AddDbContext<FisioInMemoryContext>();
 
-//dependencias dos repositorios
+//dependencias de infra
 builder.Services.AddTransient<IUnitOfWork, UnitOfWork>();
 builder.Services.AddTransient<IUserRepository, UserRepository>();
 builder.Services.AddTransient<IPatientRepository, PatientRepository>();
@@ -77,7 +74,7 @@ if (app.Environment.IsDevelopment())
 }
 
 //configuração apenas pra funcionar em localhost
-app.UseCors(options => options.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
+// app.UseCors(options => options.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
 
 app.UseHttpsRedirection();
 
